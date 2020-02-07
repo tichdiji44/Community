@@ -84,6 +84,12 @@
       <version>8.0.19</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.flywaydb</groupId>
+      <artifactId>flyway-core</artifactId>
+      <version>5.2.4</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -96,6 +102,25 @@
           <fork>true</fork>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-maven-plugin</artifactId>
+        <version>6.2.1</version>
+        <configuration>
+          <url>jdbc:mysql://localhost:3306/community?serverTimezone=GMT</url>
+          <user>root</user>
+          <password>sql2008</password>
+          <driver>com.mysql.cj.jdbc.Driver</driver>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.19</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+
     </plugins>
   </build>
 
